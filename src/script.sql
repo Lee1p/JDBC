@@ -47,6 +47,27 @@ delete from tblAddress where seq = 3 ;
 SELECT * FROM TBLINSA;
 select * from tblAddress;
 
-select * from tblmember;
+create table tblBonus (
+    seq number primary key,
+    num number(5) not null references tblInsa(num),
+    bonus number not null
+);
+create sequence seqBonus;
 
+
+select * from tblBonus;
+select num, name, buseo, jikwi from tblinsa;
+
+
+SELECT
+    i.num, i.name, i.buseo, i.jikwi, b.bonus
+FROM
+    tblinsa i
+INNER JOIN
+    tblbonus b
+ON
+    i.num = b.num;
+
+    
+    
 
